@@ -52,19 +52,19 @@ function lengthOfFence(int $numPosts, int $numRails): string {
 
 
 
-echo howManyPostsAndRails(1);
-
-echo nl2br("\n\n");
-
-echo howManyPostsAndRails(320);
-
-echo nl2br("\n\n");
-
-echo lengthOfFence(2, 1);
-
-echo nl2br("\n\n");
-
-echo lengthOfFence(2, 2);
+//echo howManyPostsAndRails(1);
+//
+//echo nl2br("\n\n");
+//
+//echo howManyPostsAndRails(320);
+//
+//echo nl2br("\n\n");
+//
+//echo lengthOfFence(2, 1);
+//
+//echo nl2br("\n\n");
+//
+//echo lengthOfFence(2, 2);
 
 
 
