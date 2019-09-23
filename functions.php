@@ -47,11 +47,11 @@ function howManyPostsAndRails(int $length): String {
 function lengthOfFence(int $numPosts, int $numRails): string {
 
     if ($numPosts < 0 && $numRails < 0) {
-        return 'Please input a non-negative number of posts and rails (you input ' . $numPosts . 'posts and ' .  $numRails .' rails)';
+        return 'Please input a non-negative number of posts and rails: ' . $numPosts . ' posts and ' .  $numRails .' rails were inputted';
     } else if ($numPosts < 0) {
-        return 'Please input a non-negative number of posts (you input ' . $numPosts . ')';
+        return 'Please input a non-negative number of posts: ' . $numPosts . ' posts were inputted';
     } else if ($numRails < 0) {
-        return 'Please input a non-negative number rails (you input ' . $numRails . ')';
+        return 'Please input a non-negative number rails: ' . $numRails . ' rails were inputted';
     }
 
     if($numPosts - $numRails !== 1) {

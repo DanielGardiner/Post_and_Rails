@@ -2,6 +2,8 @@
 session_start();
 require ('functions.php');
 
+// initialise $_SESSION variables
+
 if (isset($_POST['length'])) {
   $_SESSION['length'] = $_POST['length'];
 }
@@ -10,6 +12,8 @@ if (isset($_POST['posts']) && isset($_POST['rails'])) {
     $_SESSION['posts'] = $_POST['posts'];
     $_SESSION['rails'] = $_POST['rails'];
 }
+
+// apply functions
 
 if (isset($_SESSION['length']) && $_SESSION['length'] !=''){
     $resultLength = howManyPostsAndRails($_SESSION['length'] );
@@ -34,12 +38,10 @@ if (isset($_SESSION['posts']) && isset($_SESSION['rails']) && $_SESSION['posts']
 </head>
 <body>
 
-<br>
-
 <div class="title"><h1>Fence Calculator</h1></div>
 
 <div>
-    <h2>Calculate number of posts and rails, given length:</h2>
+    <h2>Calculate number of posts and rails, given fence length:</h2>
     <form method="POST">
         <label for="length">Length of desired fence:</label>
         <input type="number" name='length' id="length">
@@ -52,7 +54,7 @@ if (isset($_SESSION['posts']) && isset($_SESSION['rails']) && $_SESSION['posts']
 <br>
 
 <div>
-    <h2>Calculate length, given number of posts and rails</h2>
+    <h2>Calculate fence length, given number of posts and rails</h2>
     <form method="post">
         <label for="posts">Number of posts</label>
         <input type="number" name="posts" id ="posts">
@@ -63,7 +65,8 @@ if (isset($_SESSION['posts']) && isset($_SESSION['rails']) && $_SESSION['posts']
     <p><?php echo $resultPostsRails; ?></p>
 </div>
 
-<br><br><br><br><br>
+<br>
+<hr>
 
 <div>
     <h2>Rules</h2>
