@@ -2,19 +2,28 @@
 session_start();
 require ('functions.php');
 
-$_SESSION['length'] = $_POST['length'];
+if (isset($_POST['length'])) {
+  $_SESSION['length'] = $_POST['length'];
+}
 
-if(isset($_POST['length'])){
-    $resultLength = howManyPostsAndRails($_POST['length']);
+if (isset($_POST['posts']) && isset($_POST['rails'])) {
+    $_SESSION['posts'] = $_POST['posts'];
+    $_SESSION['rails'] = $_POST['rails'];
+}
+
+if (isset($_SESSION['length']) && $_SESSION['length'] !=''){
+    $resultLength = howManyPostsAndRails($_SESSION['length'] );
 } else {
     $resultLength = '';
 }
 
-if(isset($_POST['posts']) && isset($_POST['rails'])) {
-    $resultPostsRails = lengthOfFence($_POST['posts'], $_POST['rails']);
+if (isset($_SESSION['posts']) && isset($_SESSION['rails']) && $_SESSION['posts'] != '' && $_SESSION['rails']) {
+    $resultPostsRails = lengthOfFence($_SESSION['posts'], $_SESSION['rails']);
 } else {
     $resultPostsRails = '';
 }
+
+
 
 ?>
 <!DOCTYPE html>

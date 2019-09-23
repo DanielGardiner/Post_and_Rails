@@ -59,8 +59,10 @@ function lengthOfFence(int $numPosts, int $numRails): string {
     }
 
     $totalLength = $numPosts * 10 + $numRails * 150;
-    return "The total length of a fence with $numPosts posts and $numRails rails will be $totalLength cm.";
 
+    return '<p>Number of posts: ' . $numPosts . '</p>
+            <p>Number of rails: ' . $numRails. '</p>
+            <p>Fence length: ' . $totalLength. 'cm</p>';
 }
 
 
