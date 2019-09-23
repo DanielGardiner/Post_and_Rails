@@ -1,5 +1,21 @@
 <?php
+session_start();
 require ('functions.php');
+
+$_SESSION['length'] = $_POST['length'];
+
+if(isset($_POST['length'])){
+    $resultLength = howManyPostsAndRails($_POST['length']);
+} else {
+    $resultLength = '';
+}
+
+if(isset($_POST['posts']) && isset($_POST['rails'])) {
+    $resultPostsRails = lengthOfFence($_POST['posts'], $_POST['rails']);
+} else {
+    $resultPostsRails = '';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,28 +27,31 @@ require ('functions.php');
 
 <br>
 
+<div class="title"><h1>Fence Calculator</h1></div>
+
 <div>
     <h2>Calculate number of posts and rails, given length:</h2>
-    <form action="index.php" method="post">
-        <label for="length">Length of desired post in cm</label>
-        <input type="text" name="length" id="length">
+    <form method="POST">
+        <label for="length">Length of desired fence:</label>
+        <input type="number" name='length' id="length">
+        <label for="length">cm</label>
         <input type="submit">
     </form>
-    <p>Result: <?php echo howManyPostsAndRails(560); ?></p>
+    <p><?php echo $resultLength; ?></p>
 </div>
 
 <br>
 
 <div>
     <h2>Calculate length, given number of posts and rails</h2>
-    <form action="functions.php" method="post">
+    <form method="post">
         <label for="posts">Number of posts</label>
-        <input type="text" name="posts" id ="posts">
+        <input type="number" name="posts" id ="posts">
         <label for="rails">Number of rails</label>
-        <input type="text" name="rails" id ="rails">
+        <input type="number" name="rails" id ="rails">
         <input type="submit">
     </form>
-    <p>Result: </p>
+    <p><?php echo $resultPostsRails; ?></p>
 </div>
 
 <br><br><br><br><br>
